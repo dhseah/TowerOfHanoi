@@ -1,8 +1,10 @@
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TowerOfHanoiIteTest {
-    TowerOfHanoiIte testTowers;
 
+    @Test
     public void test1() {
         TowerOfHanoiIte testTowers = new TowerOfHanoiIte(1);
         testTowers.solve(1);
