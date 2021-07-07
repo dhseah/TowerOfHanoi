@@ -98,5 +98,8 @@ public class TowerOfHanoiIte implements TowerOfHanoi {
         this.aux.print();
         System.out.println();
     }
-
+    
+    public int getMoveCount() {
+        return moveCount;
+    }
 }
