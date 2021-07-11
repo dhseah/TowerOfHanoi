@@ -1,16 +1,16 @@
 public class TowerOfHanoiRec implements TowerOfHanoi {
-    private final Stack src;
-    private final Stack end;
-    private final Stack aux;
+    private final Stack<Integer> src;
+    private final Stack<Integer> end;
+    private final Stack<Integer> aux;
     private int moveCount;
 
     public TowerOfHanoiRec(int n) {
-        src = new Stack();
+        src = new Stack<>();
         for (int i = n; i > 0; i--) {
             src.push(i);
         }
-        end = new Stack();
-        aux = new Stack();
+        end = new Stack<>();
+        aux = new Stack<>();
         moveCount = 0;
     }
 
@@ -24,7 +24,7 @@ public class TowerOfHanoiRec implements TowerOfHanoi {
     }
 
     // move solves the puzzle recursively.
-    private void move(int n, Stack src, Stack end, Stack aux) {
+    private void move(int n, Stack<Integer> src, Stack<Integer> end, Stack<Integer> aux) {
         if (n > 0) {
             move(n - 1, src, aux, end);
             end.push(src.pop());
@@ -49,4 +49,5 @@ public class TowerOfHanoiRec implements TowerOfHanoi {
     }
 
     public int getMoveCount() { return moveCount; }
+
 }

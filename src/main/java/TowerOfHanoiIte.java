@@ -1,16 +1,16 @@
 public class TowerOfHanoiIte implements TowerOfHanoi {
-    private final Stack src;
-    private final Stack end;
-    private final Stack aux;
+    private final Stack<Integer> src;
+    private final Stack<Integer> end;
+    private final Stack<Integer> aux;
     private int moveCount;
 
     public TowerOfHanoiIte(int n) {
-        src = new Stack();
+        src = new Stack<>();
         for (int i = n; i > 0; i--) {
             src.push(i);
         }
-        end = new Stack();
-        aux = new Stack();
+        end = new Stack<>();
+        aux = new Stack<>();
         moveCount = 0;
     }
 
@@ -22,7 +22,7 @@ public class TowerOfHanoiIte implements TowerOfHanoi {
         move(n, this.src, this.end, this.aux);
     }
 
-    private void move(int n, Stack src, Stack end, Stack aux) {
+    private void move(int n, Stack<Integer> src, Stack<Integer> end, Stack<Integer> aux) {
 //        moveCount = 1;
         if (n % 2 == 0) {
             while (end.getLen() != n) {
@@ -69,12 +69,12 @@ public class TowerOfHanoiIte implements TowerOfHanoi {
 
     // transfer is a helper function to move a disc
     // between two stacks.
-    private void transfer(Stack stack1, Stack stack2) {
+    private void transfer(Stack<Integer> stack1, Stack<Integer> stack2) {
         // if stack2 is empty, stack1 must not be empty
         // move disc from stack1 onto stack2
-        if (stack2.peek() == -1) {
+        if (stack2.peek() == null) {
             stack2.push(stack1.pop());
-        } else if (stack1.peek() == -1) { // if stack1 is empty
+        } else if (stack1.peek() == null) { // if stack1 is empty
             stack1.push(stack2.pop()); // move disc from stack2 onto stack1
         } else { // neither is empty
             // move the smaller disc on either stack onto the other
